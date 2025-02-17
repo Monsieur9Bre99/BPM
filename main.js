@@ -66,7 +66,7 @@ function startTimer() {
         if (!state.isBreak) {
           const notification = new Notification("Pomodoro", {
             body: "Pause ! Prenez un moment de repos !",
-            icon: "https://example.com/icon.png",
+            icon: "https://imgur.com/gmsM4N8.png",
           });
           state.timeLeft = state.breakTime;
           state.isBreak = true;
@@ -74,7 +74,7 @@ function startTimer() {
         } else {
           const notification = new Notification("Pomodoro", {
             body: "C'est reparti ! Retour au travail !",
-            icon: "https://example.com/icon.png",
+            icon: "https://imgur.com/VcVsbaF.png",
           });
           state.timeLeft = state.workTime;
           state.isBreak = false;
@@ -300,11 +300,6 @@ elements.volumeDown.addEventListener("click", () => {
     state.player.setVolume(Math.max(0, currentVolume - 10));
   }
 });
-
-// Initialize
-if (Notification.permission !== "granted") {
-  Notification.requestPermission();
-}
 
 loadYouTubeAPI();
 updateTimerDisplay();

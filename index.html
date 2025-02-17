@@ -1,82 +1,93 @@
 <!DOCTYPE html>
-<html lang="en" >
+<html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <title>Breroot Pomodoro Music</title>
-  <link rel="stylesheet" href="./style.css">
+    <meta charset="UTF-8">
+    <title>Breroot Pomodoro Music</title>
+    <link rel="stylesheet" href="./style.css">
 
 </head>
+
 <body>
-<!-- partial:index.partial.html -->
-<body class="bg-gradient-to-br from-gray-600 to-gray-900 text-white flex flex-col items-center justify-center min-h-screen">
-    <main class="container mx-auto px-4 max-w-3xl">
-        <h1 class="text-4xl font-bold mb-8 text-center">⏳ BPM <span class="text-red-600"> APP</span>🎧</h1>
-        
-        <!-- Timer Display -->
-        <div class="bg-gray-800 rounded-xl p-8 shadow-2xl mb-8">
-            <div id="timer" class="text-8xl font-bold text-center mb-6 font-mono">25:00</div>
-            <div id="status" class="text-xl text-center mb-4 text-green-400">Mode Travail</div>
-            
-            <form class="max-w-sm mx-auto mb-6">
-                <label for="serie-select" class="block mb-2 text-sm font-medium text-gray-300">
-                    Sélectionnez une série
-                </label>
-                <select id="serie-select" class="w-full p-2.5 bg-gray-700 border border-gray-600 text-white rounded-lg focus:ring-green-500 focus:border-green-500">
-                    <option value="25" selected>25 min travail / 5 min pause</option>
-                    <option value="50">50 min travail / 10 min pause</option>
-                </select>
-            </form>
-            
-            <!-- Controls -->
-            <div class="flex justify-center space-x-4">
-                <button id="start-btn" class="bg-green-500 hover:bg-green-600 px-6 py-3 rounded-lg transition-colors flex items-center">
-                    <span class="mr-2">Démarrer</span>
-                </button>
-                <button id="pause-btn" class="bg-yellow-500 hover:bg-yellow-600 px-6 py-3 rounded-lg transition-colors flex items-center">
-                    <span class="mr-2">Pause</span>
-                </button>
-                <button id="reset-btn" class="bg-red-500 hover:bg-red-600 px-6 py-3 rounded-lg transition-colors flex items-center">
-                    <span class="mr-2">Réinitialiser</span>
-                </button>
-            </div>
-        </div>
-        
-        <!-- Music Controls -->
-        <div class="bg-gray-800 rounded-xl p-6 shadow-2xl mb-8">
-            <h2 class="text-xl font-bold mb-4 text-center">🎵 Contrôle Musical</h2>
-            <div class="flex justify-center space-x-4 mb-4">
-                <button id="mute-btn" class="bg-blue-500 hover:bg-blue-600 px-4 py-2 rounded-lg transition-colors">
-                    Mute/Unmute
-                </button>
-                <button id="volume-up" class="bg-blue-500 hover:bg-blue-600 px-4 py-2 rounded-lg transition-colors">
-                    Volume +
-                </button>
-                <button id="volume-down" class="bg-blue-500 hover:bg-blue-600 px-4 py-2 rounded-lg transition-colors">
-                    Volume -
-                </button>
-            </div>
-            <!-- YouTube Player -->
-            <div id="player" class="w-full rounded-lg overflow-hidden">
+    <!-- partial:index.partial.html -->
 
+    <body class="bg-gray-900 text-white flex flex-col items-center justify-center min-h-screen">
+        <main class="container mx-auto px-4 max-w-3xl">
+            <!-- Timer Display -->
+            <div class="bg-gray-800 rounded-xl p-8 shadow-2xl mb-8">
+
+                <h1 class="text-4xl font-bold mb-8 text-center">⏳ BPM <span class="text-red-600"> APP</span>🎧</h1>
+                <div id="timer" class="text-8xl font-bold text-center mb-6 font-mono">25:00</div>
+                <div id="status" class="text-xl text-center mb-4 text-green-400">Mode Travail</div>
+
+                <form class="max-w-sm mx-auto mb-6">
+                    <label for="serie-select" class="block mb-2 text-sm font-medium text-gray-300">
+                        Sélectionnez une série
+                    </label>
+                    <select id="serie-select"
+                        class="w-full p-2.5 bg-gray-700 border border-gray-600 text-white rounded-lg focus:ring-green-500 focus:border-green-500">
+                        <option value="25" selected>25 min travail / 5 min pause</option>
+                        <option value="50">50 min travail / 10 min pause</option>
+                    </select>
+                </form>
+
+                <!-- Controls -->
+                <div class="flex justify-center space-x-4">
+                    <button id="start-btn"
+                        class="bg-green-500 hover:bg-green-600 px-6 py-3 rounded-lg transition-colors flex items-center">
+                        <span class="mr-2">Démarrer</span>
+                    </button>
+                    <button id="pause-btn"
+                        class="bg-yellow-500 hover:bg-yellow-600 px-6 py-3 rounded-lg transition-colors flex items-center">
+                        <span class="mr-2">Pause</span>
+                    </button>
+                    <button id="reset-btn"
+                        class="bg-red-500 hover:bg-red-600 px-6 py-3 rounded-lg transition-colors flex items-center">
+                        <span class="mr-2">Réinitialiser</span>
+                    </button>
+                </div>
             </div>
-        </div>
-        
-        <!-- Stats -->
-        <div class="bg-gray-800 rounded-xl p-6 shadow-2xl mb-8">
-            <div id="stats" class="text-lg text-center">
-                Temps total travaillé : <span id="total-time" class="font-bold text-green-400">0</span> minutes
+
+            <!-- Music Controls -->
+            <div class="bg-gray-800 rounded-xl p-6 shadow-2xl mb-8">
+                <h2 class="text-xl font-bold mb-4 text-center">🎵 Contrôle Musical</h2>
+                <div class="flex justify-center space-x-4 mb-4">
+                    <button id="mute-btn" class="bg-blue-500 hover:bg-blue-600 px-4 py-2 rounded-lg transition-colors">
+                        Mute/Unmute
+                    </button>
+                    <button id="volume-up" class="bg-blue-500 hover:bg-blue-600 px-4 py-2 rounded-lg transition-colors">
+                        Volume +
+                    </button>
+                    <button id="volume-down"
+                        class="bg-blue-500 hover:bg-blue-600 px-4 py-2 rounded-lg transition-colors">
+                        Volume -
+                    </button>
+                </div>
+                <!-- YouTube Player -->
+                <div id="player" class="w-full rounded-lg overflow-hidden">
+
+                </div>
             </div>
-            <div class="text-center mt-4">
-                <button id="save-btn" class="bg-purple-500 hover:bg-purple-600 px-6 py-3 rounded-lg transition-colors">
-                    Exporter les Stats
-                </button>
+
+            <!-- Stats -->
+            <div class="bg-gray-800 rounded-xl p-6 shadow-2xl mb-8">
+                <div id="stats" class="text-lg text-center">
+                    Temps total travaillé : <span id="total-time" class="font-bold text-green-400">0</span> minutes
+                </div>
+                <div class="text-center mt-4">
+                    <button id="save-btn"
+                        class="bg-purple-500 hover:bg-purple-600 px-6 py-3 rounded-lg transition-colors">
+                        Exporter les Stats
+                    </button>
+                </div>
             </div>
-        </div>
-    </main>
-</body>
-<!-- partial -->
-  <script src='https://cdn.tailwindcss.com/'></script>
-<script src="https://www.youtube.com/iframe_api"></script><script  src="./main.js"></script>
+        </main>
+    </body>
+    <!-- partial -->
+    <script src='https://cdn.tailwindcss.com/'></script>
+    <script src="https://www.youtube.com/iframe_api"></script>
+    <script src="./main.js"></script>
 
 </body>
+
 </html>
